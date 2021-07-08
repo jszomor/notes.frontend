@@ -9,7 +9,7 @@ export const ActionTypes = {
     EDIT_NOTE: 'EDIT_NOTE',
 }
 
-export const ActionCreator = {
+export const ActionCreators = {
     setNotes: payload => ({ type: ActionTypes.SET_NOTES, payload }),
     deleteNote: payload => ({ type: ActionTypes.DELETE_NOTE, payload }),
     newNote: payload => ({ type: ActionTypes.NEW_NOTE, payload }),
