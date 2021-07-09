@@ -44,8 +44,8 @@ const NoteModal = ({ note, handleFormSubmit, show, handleClose }) => {
             }}>
                 <Modal.Body>
                     <InputGroup>
-                        <FormControl value={modalNote === null ? '' : modalNote}
-                            onChange={event => setModalNote(event.target.value)} />
+                        <FormControl value={modalNote === null ? '' : modalNote.value}
+                            onChange={event => setModalNote({...modalNote, value: event.target.value})} />
                     </InputGroup>
                 </Modal.Body>
                 <Modal.Footer>

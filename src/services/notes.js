@@ -15,10 +15,10 @@ export const GetNotes = async (dispatch) => {
     }
 }
 
-
 export const DeleteNote = async (dispatch, note) => {
     try {
         // api call
+        await axiosInstance.delete(`/${note.id}`);
         dispatch(ActionCreators.deleteNote(note));
 
     } catch {
@@ -29,8 +29,8 @@ export const DeleteNote = async (dispatch, note) => {
 export const NewNote = async (dispatch, note) => {
     try {
         // api call
-        const response = { value: note, id: 1 };
-        dispatch(ActionCreators.newNote(response));
+        const { data } = await axiosInstance.post('', note);
+        dispatch(ActionCreators.newNote(data));
 
     } catch {
         console.log('Error!');
@@ -40,8 +40,8 @@ export const NewNote = async (dispatch, note) => {
 export const EditNote = async (dispatch, note) => {
     try {
         // api call
-        const response = { value: note, id: 1 };
-        dispatch(ActionCreators.editNote(response));
+        await axiosInstance.put('', note);
+        dispatch(ActionCreators.editNote(note));
 
     } catch {
         console.log('Error!');
